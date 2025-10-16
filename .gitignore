@@ -1,0 +1,26 @@
+# Virtual environment
+venv/
+.venv/
+
+# Environment files
+.env
+*.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Large PDF files (for local development only)
+me/*.pdf
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
