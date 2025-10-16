@@ -1,13 +1,4 @@
-# NOTE: This cell imports all necessary packages for the project:
-# - dotenv: loads environment variables from .env file
-# - openai: OpenAI API client for GPT models with tool calling
-# - json: for parsing tool call arguments
-# - os: for accessing environment variables
-# - requests: for making HTTP requests to Pushover API
-# - pypdf: for reading PDF documents (LinkedIn profiles)
-# - gradio: for creating the web chat interface
-
-# imports
+# Career Chat Bot - AI Assistant for Professional Representation
 
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -16,9 +7,7 @@ import os
 import requests
 import gradio as gr
 
-# NOTE: This cell initializes the environment and OpenAI client:
-# - load_dotenv() loads API keys and configuration from .env file
-# - OpenAI() creates the client instance for making API calls with tool support
+# Initialize environment and OpenAI client
 
 # The usual start
 
@@ -47,7 +36,7 @@ if pushover_token:
 else:
     print("Pushover token not found")
 
-# NOTE: This cell defines the push function for sending notifications:
+# Push notification function
 # - Takes a message string as input
 # - Prints the message locally for debugging
 # - Creates a payload with user credentials and message
@@ -69,7 +58,7 @@ def record_user_details(email, name="Name not provided", notes="not provided"):
     return {"recorded": "ok"}
 
 
-# NOTE: This cell defines the record_unknown_question function:
+    # NOTE: This cell defines the record_unknown_question function:
 # - Records questions that the AI couldn't answer (knowledge gaps)
 # - Sends push notification with the unanswered question for learning opportunities
 # - Returns confirmation for the AI system
@@ -168,7 +157,7 @@ def handle_tool_calls(tool_calls):
         results.append({"role": "tool","content": json.dumps(result),"tool_call_id": tool_call.id})
     return results
 
-    # NOTE: This cell demonstrates using globals() to call functions dynamically:
+# NOTE: This cell demonstrates using globals() to call functions dynamically:
 # - Uses globals() dictionary to access functions by name as strings
 # - Shows how to call a function without knowing its name at compile time
 # - This approach eliminates the need for explicit if/elif statements
@@ -280,7 +269,7 @@ def chat(message, history):
             done = True
     return response.choices[0].message.content
 
-    # NOTE: This cell launches the Gradio chat interface with tool calling:
+# NOTE: This cell launches the Gradio chat interface with tool calling:
 # - Creates a web-based chat interface using the enhanced chat function
 # - The interface now includes tool calling capabilities for push notifications
 # - Users can interact with the AI assistant while it records interactions
