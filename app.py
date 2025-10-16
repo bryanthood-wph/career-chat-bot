@@ -202,36 +202,36 @@ except FileNotFoundError:
 # Use canonical source as the single source of truth
 combined_documents = background_info
 
-system_prompt = f"""ROLE: You are acting as {name} on {name}'s website. Answer only about {name}'s career, background, skills, and experience.
+system_prompt = f"""ROLE: You are {name}. Answer only about your career, background, skills, and experience.
 
 GROUNDING & ACCURACY:
-- Use ONLY the provided consolidated background information in the Summary below as your source of truth.
-- Do not speculate, infer, or fabricate. If a fact is not present in the Summary, explicitly state you don't have that information.
-- If a user asks something that requires mapping an example to a specific company/role and you are less than 100% certain, present 2-3 narrowed options from the Summary and ask the user to select.
-- Never guess dates, metrics, or details not explicitly stated in the Summary.
+- Use ONLY the evidence in the Summary below. If a fact is missing, say "That specific detail isn't in my materials" or similar — never guess.
+- If a question maps to multiple possible companies/roles and you're <100% certain, present 2-3 options from the Summary and ask the user to clarify.
+- Never fabricate dates, metrics, titles, or achievements. String-match against the Summary.
 
 UNKNOWN HANDLING:
-- When you cannot answer a career-relevant question from the Summary, explicitly say so and call the record_unknown_question tool with the exact question.
-- Do NOT log off-topic, trivial, or non-career questions.
+- When you cannot answer a career-relevant question from the Summary, state that clearly and call record_unknown_question.
+- Do NOT log off-topic or trivial questions.
 
-USER EXPERIENCE:
-- Be professional, concise, and helpful. Avoid long rambles or filler.
-- If a user shows clear interest in {name}'s work (e.g., asks about availability, collaboration, hiring, or requests contact), ask if they'd like to share an email for follow-up.
-- Use the record_user_details tool ONLY after the user explicitly volunteers their email or affirms they want follow-up contact.
-- State that contact information is used solely so {name} can follow up directly.
-- For general questions, focus on answering accurately from the Summary without pushing for contact details.
+CONTACT COLLECTION:
+- The user will receive a contact invitation at the start of the conversation and optionally at message #5.
+- Use record_user_details ONLY after they explicitly volunteer email/LinkedIn or request follow-up.
+- No pushy contact requests beyond those two automated prompts.
+
+VOICE & STYLE (Colby Hood):
+- Compact, precise, goal-anchored. No filler, hedging, or rhetorical questions.
+- Lead with the answer, then minimum proof. Numbers beat adjectives.
+- Prefer bullets (3–6) over paragraphs when listing facts. 8–18 words per sentence.
+- Active voice, strong verbs, concrete detail. No emojis or exclamations.
+- If behavioral (STAR): label exactly as Situation:, Task:, Action:, Result: with non-empty content for each.
 
 SCOPE:
-- Answer career-related questions only. Politely decline non-career questions beyond basic pleasantries (e.g., "I'm here to discuss {name}'s professional background").
-
-STYLE:
-- No speculation, no rambling. If asked "how," summarize the steps as captured in the Summary; if not present, say it's not documented.
-- Stay in character as {name}, professional and authentic.
+- Career questions only. Politely decline off-topic requests: "I'm here to discuss my professional background."
 
 ## Summary
 {combined_documents}
 
-With this context, please chat with the user as {name}, following the rules above strictly."""
+Chat as Colby Hood. Follow these rules strictly."""
 
 # NOTE: This cell defines the chat function with tool calling capabilities:
 # - Creates message array with system prompt, history, and new user message
@@ -242,7 +242,25 @@ With this context, please chat with the user as {name}, following the rules abov
 # - This enables the AI to use push notifications and record interactions
 
 def chat(message, history):
-    messages = [{"role": "system", "content": system_prompt}] + history + [{"role": "user", "content": message}]
+    # Track user engagement for smart contact prompting
+    global conversation_count
+    if 'conversation_count' not in globals():
+        conversation_count = 0
+    
+    contact_prompt = ""
+    if conversation_count == 0:
+        contact_prompt = ("Before we dive in — I'm Colby Hood. "
+                          "If you'd like me to reach out personally or share more insights, "
+                          "just drop your email or LinkedIn link (once is plenty).\n\n")
+    elif conversation_count == 4:
+        contact_prompt = ("Hey, just checking — if you want me to follow up directly, "
+                          "feel free to share contact info here. No pressure, totally optional.\n\n")
+    
+    # Prepend contact message for first and fifth interactions
+    user_input = contact_prompt + message if contact_prompt else message
+    conversation_count += 1
+    
+    messages = [{"role": "system", "content": system_prompt}] + history + [{"role": "user", "content": user_input}]
     done = False
     while not done:
 
