@@ -8,4 +8,6 @@ node_modules/
 .env
 .DS_Store
 venv/
+.venv_new/
+venv_clean/
 
