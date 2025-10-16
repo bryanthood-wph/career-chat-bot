@@ -14,7 +14,6 @@ from openai import OpenAI
 import json
 import os
 import requests
-from pypdf import PdfReader
 import gradio as gr
 
 # NOTE: This cell initializes the environment and OpenAI client:
@@ -216,49 +215,20 @@ name = "Colby Hood"
 # - Provides all personal context (summary and LinkedIn) for answering questions
 # - Includes specific instructions for tool usage and professional behavior
 
-# Read Psychological Profile (with error handling)
+# Read background information from me.txt
 try:
-    with open("me/Psychological_Profile_Bryant_Colby_Hood.pdf", "rb") as f:
-        pdf_reader = PdfReader(f)
-        psychological_profile = ""
-        for page in pdf_reader.pages:
-            psychological_profile += page.extract_text()
+    with open("me.txt", "r", encoding="utf-8") as f:
+        background_info = f.read()
 except FileNotFoundError:
-    psychological_profile = "Psychological profile not available - please add the PDF file"
-
-# Read Interview Prep (with error handling)
-try:
-    with open("me/Interview Prep.pdf", "rb") as f:
-        pdf_reader = PdfReader(f)
-        interview_prep = ""
-        for page in pdf_reader.pages:
-            interview_prep += page.extract_text()
-except FileNotFoundError:
-    interview_prep = "Interview prep materials not available - please add the PDF file"
-
-# Read Resume (with error handling)
-try:
-    with open("me/B. Colby Hood Resume.pdf", "rb") as f:
-        pdf_reader = PdfReader(f)
-        resume = ""
-        for page in pdf_reader.pages:
-            resume += page.extract_text()
-except FileNotFoundError:
-    resume = "Resume not available - please add the PDF file"
+    background_info = "Background information not available - please add the me.txt file"
 
 # Combine all documents
 combined_documents = f"""
 LINKEDIN PROFILE:
 {linkedin}
 
-PSYCHOLOGICAL PROFILE:
-{psychological_profile}
-
-B. Colby Hood Resume.pdf:
-{resume}
-
-Interview Prep:
-{interview_prep}
+BACKGROUND INFORMATION:
+{background_info}
 """
 
 system_prompt = f"You are acting as {name}. You are answering questions on {name}'s website, \
