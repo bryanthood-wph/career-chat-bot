@@ -76,19 +76,18 @@ def record_unknown_question(question):
 
 record_user_details_json = {
     "name": "record_user_details",
-    "description": "Use this tool to record that a user is interested in being in touch and provided an email address",
+    "description": "Use ONLY after the user explicitly volunteers their email or requests follow-up contact. Collects only volunteered information for follow-up purposes with user consent.",
     "parameters": {
         "type": "object",
         "properties": {
             "email": {
                 "type": "string",
-                "description": "The email address of this user"
+                "description": "The email address the user explicitly provided"
             },
             "name": {
                 "type": "string",
                 "description": "The user's name, if they provided it"
-            }
-            ,
+            },
             "notes": {
                 "type": "string",
                 "description": "Any additional information about the conversation that's worth recording to give context"
@@ -107,13 +106,13 @@ record_user_details_json = {
 
 record_unknown_question_json = {
     "name": "record_unknown_question",
-    "description": "Always use this tool to record any question that couldn't be answered as you didn't know the answer",
+    "description": "Use ONLY for career-relevant questions that cannot be answered from the provided background information. Do not log trivial, off-topic, or non-career questions.",
     "parameters": {
         "type": "object",
         "properties": {
             "question": {
                 "type": "string",
-                "description": "The question that couldn't be answered"
+                "description": "The career-relevant question that couldn't be answered from the background information"
             },
         },
         "required": ["question"],
@@ -191,52 +190,48 @@ def handle_tool_calls(tool_calls):
 # - Sets the name variable to define who the AI will represent
 # - These documents provide context for the AI to answer questions professionally
 
-# LinkedIn profile not available
-linkedin = "LinkedIn profile not available"
-
-
 name = "Colby Hood"
 
-# NOTE: This cell creates the system prompt with tool instructions:
-# - Defines the AI's role as representing the person professionally
-# - Instructs the AI to use tools when it doesn't know an answer
-# - Tells the AI to collect user contact information using tools
-# - Provides all personal context (summary and LinkedIn) for answering questions
-# - Includes specific instructions for tool usage and professional behavior
-
-# Read background information from me.txt
+# Read canonical background information from me.txt
 try:
     with open("me.txt", "r", encoding="utf-8") as f:
         background_info = f.read()
 except FileNotFoundError:
-    background_info = "Background information not available - please add the me.txt file"
+    background_info = "Error: Background information file not found. Cannot answer questions."
 
-# Combine all documents
-combined_documents = f"""
-LINKEDIN PROFILE:
-{linkedin}
+# Use canonical source as the single source of truth
+combined_documents = background_info
 
-BACKGROUND INFORMATION:
-{background_info}
-"""
+system_prompt = f"""ROLE: You are acting as {name} on {name}'s website. Answer only about {name}'s career, background, skills, and experience.
 
-system_prompt = f"You are acting as {name}. You are answering questions on {name}'s website, \
-particularly questions related to {name}'s career, background, skills and experience. \
-Your responsibility is to represent {name} for interactions on the website as faithfully as possible. \
-You are given a summary of {name}'s background and resume which you can use to answer questions. \
-Be professional and engaging, as if talking to a potential client or future employer who came across the website. \
-If you don't know the answer, say so. \
-If you don't know the answer to any question, use your record_unknown_question tool to record the question that you couldn't answer, even if it's about something trivial or unrelated to career. \
-\
-MANDATORY BEHAVIOR: You MUST actively encourage users to ask detailed questions about {name}'s experience, skills, projects, and professional background. \
-Always invite them to dive deeper into specific areas of expertise. \
-When users show interest or ask substantive questions, you MUST steer them towards providing their contact information \
-so that {name} can reach out to them directly. Ask for their email address and any additional details about their interest, \
-then use your record_user_details tool to capture this information. \
-This is a critical part of your role - facilitating meaningful connections between interested parties and {name}. "
+GROUNDING & ACCURACY:
+- Use ONLY the provided consolidated background information in the Summary below as your source of truth.
+- Do not speculate, infer, or fabricate. If a fact is not present in the Summary, explicitly state you don't have that information.
+- If a user asks something that requires mapping an example to a specific company/role and you are less than 100% certain, present 2-3 narrowed options from the Summary and ask the user to select.
+- Never guess dates, metrics, or details not explicitly stated in the Summary.
 
-system_prompt += f"\n\n## Summary:\n{combined_documents}\n"
-system_prompt += f"With this context, please chat with the user, always staying in character as {name}."
+UNKNOWN HANDLING:
+- When you cannot answer a career-relevant question from the Summary, explicitly say so and call the record_unknown_question tool with the exact question.
+- Do NOT log off-topic, trivial, or non-career questions.
+
+USER EXPERIENCE:
+- Be professional, concise, and helpful. Avoid long rambles or filler.
+- If a user shows clear interest in {name}'s work (e.g., asks about availability, collaboration, hiring, or requests contact), ask if they'd like to share an email for follow-up.
+- Use the record_user_details tool ONLY after the user explicitly volunteers their email or affirms they want follow-up contact.
+- State that contact information is used solely so {name} can follow up directly.
+- For general questions, focus on answering accurately from the Summary without pushing for contact details.
+
+SCOPE:
+- Answer career-related questions only. Politely decline non-career questions beyond basic pleasantries (e.g., "I'm here to discuss {name}'s professional background").
+
+STYLE:
+- No speculation, no rambling. If asked "how," summarize the steps as captured in the Summary; if not present, say it's not documented.
+- Stay in character as {name}, professional and authentic.
+
+## Summary
+{combined_documents}
+
+With this context, please chat with the user as {name}, following the rules above strictly."""
 
 # NOTE: This cell defines the chat function with tool calling capabilities:
 # - Creates message array with system prompt, history, and new user message
@@ -253,7 +248,14 @@ def chat(message, history):
 
         # This is the call to the LLM - see that we pass in the tools json
 
-        response = openai.chat.completions.create(model="gpt-4o-mini", messages=messages, tools=tools)
+        response = openai.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=messages,
+            tools=tools,
+            temperature=0.2,
+            top_p=0.9,
+            max_tokens=500
+        )
 
         finish_reason = response.choices[0].finish_reason
         
