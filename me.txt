@@ -1,31 +1,364 @@
-# Colby Hood - Professional Background
+---
 
-## Professional Summary
-Experienced professional with expertise in AI, machine learning, and business strategy. Passionate about leveraging technology to solve complex business problems and drive innovation.
+doc_id: wh-colby-hood
+version: 1.5
+strict_mode: true
+generated: 2025-10-16
+schema: v2
+owner: "Colby Hood"
+encoding: UTF-8
+notes: |
+Canonical, machine-first source for evaluator/optimizer bots. IDs are stable and deterministic.
+-----------------------------------------------------------------------------------------------
 
-## Key Skills & Expertise
-- AI and Machine Learning
-- Business Strategy and Analysis
-- Project Management
-- Data Analysis
-- Leadership and Team Building
+## Parser Contract (No-Guessing)
 
-## Professional Experience
-- Strong background in AI and technology implementation
-- Experience in business strategy and operational excellence
-- Proven track record in leading cross-functional teams
-- Expertise in translating technical concepts to business value
+* confidence_taxonomy: ["confirmed_user","resume_corroborated","interview_prep_corroborated","needs_confirmation"]
+* rule_001: Any item not marked "confirmed_user" must include `job_candidates` and move to the Ambiguity Queue.
+* rule_002: Every achievement must include a `source_refs` array with doc name and line ranges.
+* rule_003: No free text dates; only `YYYY` or `YYYY-MM`. Use `present` for ongoing roles.
+* rule_004: Units are mandatory for metrics.
+* rule_005: If an example spans multiple roles, represent it as one achievement with multiple `job_candidates`.
 
-## Education & Certifications
-- MBA with focus on business strategy
-- Continuous learning in AI and emerging technologies
-- Professional certifications in relevant technologies
+## Profile
 
-## Interests & Goals
-- Passionate about AI and its applications in business
-- Interested in helping others understand and leverage technology
-- Committed to continuous learning and professional development
-- Focus on building meaningful professional relationships
+* name: Colby Hood
+* location: Falls Church, VA, USA
+* email: [brnthood@gmail.com](mailto:brnthood@gmail.com)
+* phone: (571) 395-7623
+* urls: [[https://www.linkedin.com/in/colby-hood-mba-336156150/](https://www.linkedin.com/in/colby-hood-mba-336156150/), [https://bryanthood-wph.github.io/index.html](https://bryanthood-wph.github.io/index.html)]
 
-## Contact & Engagement
-Always interested in connecting with professionals who share similar interests in AI, technology, and business innovation. Open to discussing opportunities, collaborations, and knowledge sharing.
+## Employers (dictionary)
+
+```json
+[
+  {"type":"employer","id":"emp-amzn","name":"Amazon","domain":"amazon.com","country":"USA","aliases":["AMAZON","Amazon.com, Inc."]},
+  {"type":"employer","id":"emp-cof","name":"Capital One Financial Corporation","domain":"capitalone.com","country":"USA","aliases":["Capital One","COF"]},
+  {"type":"employer","id":"emp-lowes","name":"Lowe's Companies, Inc.","domain":"lowes.com","country":"USA","aliases":["Lowe's","Lowes"]},
+  {"type":"employer","id":"emp-acad","name":"Academy Sports + Outdoors","domain":"academy.com","country":"USA","aliases":["Academy"]}
+]
+```
+
+## Skills (controlled vocab)
+
+* core: [finance_leadership, fp_and_a, automation, ai_in_finance, cloud_cost_optimization, analytics, forecasting, kpi_development, data_governance]
+* tools: [sql, tableau, power_bi, quicksight, aws, python, excel]
+* domains: [retail, ecommerce, technology_finance, store_operations]
+
+## Jobs
+
+:::job id=job-amzn-2023-09
+employer_id: emp-amzn
+employer: Amazon
+location: Arlington, VA, USA
+title_std: Finance Operations Manager
+scope_tag: AI, Bankruptcy & Debt Recovery
+start_date: 2023-09
+end_date: present
+reports: 7
+opex_usd: 39000000
+revenue_context_usd: 40000000000
+summary: |
+Own day-to-day operations and long-term strategy for optimizing retail contra-COGS collections. Lead cross-functional tiger teams; assumed bankruptcy and debt recovery scope in 2025-06.
+tech_stack: [aws, sql, quicksight]
+skills_core: [ai_in_finance, automation, fp_and_a, risk_management]
+skills_tools: [quicksight, sql]
+:::
+
+### Responsibilities
+
+* Collections optimization strategy and execution across retail contra-COGS revenue
+* Bankruptcy and debt recovery program ownership (since 2025-06)
+* Cross-functional program leadership and executive communication
+
+### Outcomes (metrics)
+
+* productivity_gain_retail_vcpu_pct: { before: 0, after: 10, unit: percent, period: 2025 }
+* fcgains_ar_offset_pct: { before: 95, after: 97, unit: percent }
+* unapplied_cash_usd_weekly: { before: 10000000, after: 2000000, unit: usd }
+* bi_data_requests_removed_ttm: { value: 310, unit: count }
+* fcf_gain_usd: { value: 18000000, unit: usd }
+* nps_pct: { value: 94, unit: percent }
+* productivity_gain_retail_vcpu_pct_2024: { value: 3.5, unit: percent, period: 2024 }
+* liquidations_growth_usd: { dec_2023: 41000000, dec_2024: 157000000 }
+
+### Achievements (linked evidence or examples)
+
+* achv-amzn-voice2voice: "Authored cross-functional Voice-to-Voice AI tiger team proposal to automate 134K outbound calls; targeted 200+ FTE productivity unlock." tags: [automation, ai_in_finance]
+* achv-amzn-nps: "Led HQ2 AI Productivity Lunch & Learn; 94% NPS." tags: [enablement]
+* achv-amzn-unapplied-cash: "Rebuilt SOPs and escalations; reduced weekly unapplied cash from >$10M to ~$2M by aligning FinOps with business VPs." tags: [process_improvement, exec_influence]
+
+### Execution breakdowns (how)
+
+* Voice-to-Voice AI proposal: authored a cross-functional proposal to automate 134K outbound calls; targeted 200+ FTE productivity unlock.
+* Unapplied cash reduction: rebuilt SOPs and escalations; aligned FinOps with business VPs to prioritize and clear aged balances.
+* Self-service AR data: influenced centralized BI team to pilot self-service; removed 310 TTM ad hoc requests through the new pathway.
+
+:::job id=job-cof-2021-11
+employer_id: emp-cof
+employer: Capital One Financial Corporation
+location: McLean, VA, USA
+title_std: Principal Associate
+scope_tag: Card Technology Finance
+start_date: 2021-11
+end_date: 2023-09
+summary: |
+Built reporting processes for a $1.3B tech budget; led AWS cloud optimization roadmap delivering $30M savings. Mentored associates; created exec-facing insights and frameworks.
+tech_stack: [aws, tableau, quicksight, excel, power_bi]
+skills_core: [cloud_cost_optimization, forecasting, cross_functional_leadership, analytics]
+skills_tools: [tableau, quicksight, excel]
+:::
+
+### Responsibilities
+
+* Own reporting and forecasting workflows for Card Technology
+* Lead cross-functional cloud optimization efforts across product, tech, and finance
+* Coach and develop rotational associates and senior analyst
+
+### Outcomes (metrics)
+
+* data_cost_reduction_usd: { value: 20000000, unit: usd }
+* data_cost_avoidance_usd: { value: 10000000, unit: usd }
+* cloud_savings_total_usd: { value: 30000000, unit: usd }
+* monthly_outlook_effort_reduction_pct: { value: 75, unit: percent }
+* rr_drop_pct: { value: 8, unit: percent, start: 2024-01 }
+* rr_drop_usd: { value: 6000000, unit: usd, qualifier: approx, start: 2024-01 }
+* forecast_risk_usd_per_month: { value: 1000000, unit: usd_per_month }
+* replication_waste_usd: { value: 550000, unit: usd }
+
+### Achievements (mapped from Interview Prep)
+
+* Contribution margin labor framework: "Contribution margin labor framework: volume-rate-mix for tech labor; adopted toward target setting and dashboarding." tags: [framework, forecasting]
+* Automated code testing business case: "Automated code testing business case synthesis for exec; enabled decision to schedule automation dev and highlighted capacity tradeoffs." tags: [bias_for_action, analytics]
+* Partner OPEX/HC self-service dashboard: "Partner OPEX + HC self-service dashboard; piloted with conditional access and guardrails; became top-used finance dashboard." tags: [invent_and_simplify, enablement]
+* Cloud deployment delay risk mitigation: "Mitigated $1M/month forecast risk due to deployment delays; discovered $550k replication waste; policy changes restored forecast." tags: [dive_deep, deliver_results]
+* Cloud optimization roadmap: "Survey-driven optimization roadmap across EC2 rightsizing, serverless migration, storage rationalization; ratified by tech leaders; 8% RR drop (~$6M) starting 2024-Q1." tags: [think_big, cloud_cost_optimization]
+* Headcount policy exception for horizontal data team: "Secured HC policy exception for horizontal data team via business case tied to CEO imperative and $20M+ savings lineage." tags: [have_backbone, earn_trust]
+* Harmony/MLX chargeback funding shift: "Negotiated funding for MLX/Harmony chargeback request; shifted to business-funded model and embedded cloud analytics earlier in biz-case process." tags: [ownership, success_and_scale]
+* Cloud unit economics (CFO education): "Educated Card CFO on cloud unit economics; aligned on optimization pillars (optimization day, data hygiene, graviton) and secured prioritization support." tags: [earn_trust, think_big]
+
+### Execution breakdowns (how)
+
+* Partner OPEX/HC self-service dashboard: proposed partner self-service; coached a senior analyst; piloted with conditional access and guardrails; rolled out; observed ~50 monthly views.
+* Milestone contracts: replaced straight-line accrual with Jira story-point percent complete; integrated with enterprise service management; transitioned LOB ownership; held variance <3% across three quarters.
+* Cloud optimization roadmap: surveyed product, tech, and finance leaders; prioritized EC2 rightsizing, serverless migration, storage rationalization; ratified by tech leadership; modeled an ~8% RR reduction from 2024-Q1.
+* Cloud deployment delay risk mitigation: identified $1M/month forecast risk; found $550k replication waste; implemented policy changes that restored forecast accuracy.
+* Cloud unit economics (CFO education): codified pillars (optimization day, data hygiene, graviton) and aligned leadership to adopt them.
+
+:::job id=job-lowes-2020-08
+employer_id: emp-lowes
+employer: Lowe's Companies, Inc.
+location: Charlotte, NC, USA
+title_std: Senior Financial Analyst
+start_date: 2020-08
+end_date: 2021-11
+summary: |
+Owned core FP&A controllable operating profit reporting for executive and operational partners. Built scalable Power BI expense dashboard and led cross-functional UX effort for store-facing finance reporting.
+tech_stack: [power_bi, sql]
+skills_core: [fp_and_a, process_improvement, stakeholder_management]
+skills_tools: [power_bi, sql]
+:::
+
+### Outcomes (metrics)
+
+* analyst_hours_saved_monthly: { value: 120, unit: hours }
+* sustainability_seed_funding_usd: { value: 1300000, unit: usd }
+
+### Achievements (mapped)
+
+* Holiday hourly sales dashboard (VoC): "Won Voice of the Customer award; delivered hourly store sales dashboard with top-5 items and in-stock overlays for holiday retail ops." tags: [customer_obsession, reporting]
+* Damage-to-sales efficiency metric: "Created damage-to-sales efficiency metric; influenced supply chain forecasts and margin planning." tags: [dive_deep]
+* Plant-watering efficiency initiative: "Business case for plant-watering tech; secured $1.3M seed funding to reduce water consumption." tags: [success_and_scale]
+* Western region freight-driven margin gap analysis: "Exposed western region freight-driven margin gap; added shipping layer to planning and improved plan attainment." tags: [dive_deep]
+* Store due-files backlog reduction: "Decreased due files by ~65% over 6 months by surfacing instance-level order data and driving store follow-through; noted downstream store payroll impact." tags: [deliver_results, frugality]
+
+### Execution breakdowns (how)
+
+* Store due-files backlog reduction: surfaced instance-level order data; prioritized lists by aging and value; drove store follow-through; tracked reduction over six months.
+* Holiday hourly sales dashboard (VoC): shipped an hourly dashboard with top-5 items and in-stock overlays.
+* Western region freight-driven margin gap analysis: added a shipping cost layer to planning; adjusted targets accordingly.
+* Damage-to-sales efficiency metric: defined the metric and linked it to supply chain forecasting inputs.
+* Plant-watering efficiency initiative: built the investment case; secured $1.3M seed funding.
+
+:::job id=job-lowes-2019-06
+employer_id: emp-lowes
+employer: Lowe's Companies, Inc.
+location: Charlotte, NC, USA
+title_std: Financial Analyst
+start_date: 2019-06
+end_date: 2020-08
+summary: |
+Delivered operational insight and localized storytelling for senior leaders; automated daily sales reporting; supported holiday reporting.
+skills_core: [fp_and_a, automation]
+tech_stack: [excel, power_query]
+:::
+
+### Outcomes (metrics)
+
+* daily_sales_reporting_hours_saved_monthly: { value: 60, unit: hours }
+
+### Achievements (mapped)
+
+* Western region margin analysis foundation: "Analyzed gross margin variance; identified western logistics cost headwinds; drove lower margin targets for affected stores." tags: [fp_and_a, analysis]
+* Regional business reviews (econ/demographic indexed): "Built regional business reviews indexed to econ/demographic trends." tags: [analytics]
+
+### Execution breakdowns (how)
+
+* Western region margin analysis foundation: analyzed gross margin variance; isolated freight headwinds; recommended lower margin targets.
+* Regional business reviews: built region packs indexed to economic and demographic drivers.
+
+:::job id=job-acad-2018-07
+employer_id: emp-acad
+employer: Academy Sports + Outdoors
+location: Katy, TX, USA
+title_std: Operations Analyst
+start_date: 2018-07
+end_date: 2019-06
+summary: |
+Owned chainwide allocation, replenishment, and vendor relationships for $140M+ coolers and drinkware business. Negotiated with Yeti and private label suppliers.
+skills_core: [inventory_planning, vendor_negotiation, allocation]
+tech_stack: [oracle]
+:::
+
+### Outcomes (metrics)
+
+* annual_revenue_yeti_usd: { value: 75000000, unit: usd }
+* avg_in_stock_pct: { value: 95, unit: percent }
+
+### Achievements (mapped)
+
+* Seasonal cluster allocation strategy: "Cluster-based allocation strategies using descriptive statistics for holiday and seasonal trends." tags: [invent_and_simplify]
+* Igloo vendor funding for EDLP reset: "Negotiated vendor funding to cover EDLP margin gap for cooler reset; funded ~15% and reallocated capital into winning SKUs." tags: [frugality, negotiation]
+* Collegiate color allocation lesson: "One-time collegiate color buy; accelerated initial allocation to 80% given late arrival; trapped inventory in some combos; learned to trust warehouse replenishment and guardrails." tags: [are_right_a_lot]
+
+### Execution breakdowns (how)
+
+* Igloo vendor funding for EDLP reset: negotiated vendor co-funding to close the margin gap; reinvested in EDLP assortment.
+* Seasonal cluster allocation strategy: used descriptive statistics to cluster stores for seasonal allocation aligned to holiday and weather patterns.
+* Collegiate color allocation lesson: accelerated initial allocation to 80% given late arrival; monitored trapped inventory and tightened guardrails for future buys.
+
+:::job id=job-acad-2017-01
+employer_id: emp-acad
+employer: Academy Sports + Outdoors
+location: Katy, TX, USA
+title_std: Store Manager
+start_date: 2017-01
+end_date: 2018-07
+summary: |
+Led an 80-person store; launched training that ranked #1 company-wide in high-margin online fulfillment; maintained customer satisfaction >90th percentile.
+skills_core: [team_leadership, operations_management]
+:::
+
+## Education
+
+* 2023-05: MBA, Data Analytics, Wake Forest University (Beta Gamma Sigma)
+* BA, Business Administration, East Tennessee State University (Cum Laude)
+
+## Evidence Registry (non-exhaustive, human-readable IDs)
+
+* doc-aws-adr-voice2voice: "Voice-to-Voice AI proposal deck" visibility: internal_redacted status: planned
+* doc-cof-contr-margin-demo: "Contribution Margin Labor POC video" visibility: internal_redacted status: planned
+* doc-cof-opex-dash: "OPEX/HC Partner Dashboard" visibility: internal_redacted status: planned
+* doc-cof-cloud-roadmap: "Cloud Optimization Roadmap plan" visibility: internal_redacted status: planned
+* doc-lowes-voc: "Holiday hourly sales dashboard demo (VoC)" visibility: internal_redacted status: planned
+* doc-lowes-west-margin: "Western margin freight analysis" visibility: internal_redacted status: planned
+* doc-lowes-due-files: "Store due-files recovery tracker" visibility: internal_redacted status: planned
+* doc-acad-edlp-igloo: "Igloo vendor funding deck (EDLP reset)" visibility: internal_redacted status: planned
+
+## Provenance Map (doc and line ranges)
+
+* Milestone contracts → Interview Prep.pdf L13-L31; L61-L80
+* OPEX dashboard (partner self-service) → Interview Prep.pdf L12-L47
+* Due files (instance-level recovery) → Interview Prep.pdf L13-L33; L53-L74
+* Western region margin analysis → Interview Prep.pdf L40-L66; L1-L22 (follow-on)
+* Voice of Customer (hourly sales) → Interview Prep.pdf L23-L36; L57-L71
+* Forward weeks of supply (FWOS): Snowblowers (Denver) → Interview Prep.pdf L77-L86; L27-L47
+* Product team reporting — Lowe’s self-serve → Resume.pdf L47-L49; L51-L53
+* Voice-to-Voice AI proposal → Resume.pdf L55-L63
+* Unapplied cash reduction → Resume.pdf L67-L71
+* 310 TTM AR data requests removed → Resume.pdf L73-L75
+* Cloud optimization savings → Resume.pdf L41-L53; L3-L5
+* Cloud optimization savings total (user-confirmed 2025-10-16) → $30MM
+
+## Examples Index (Interview Prep → Job/Project mapping)
+
+> Status: "mapped" if confidently linked, "clarify" if ambiguous and needs your confirmation.
+
+* Automated BAU/RTE (Lowe's) → mapped: job-lowes-2020-08
+* Voice of Customer (holiday hourly sales) → mapped: job-lowes-2020-08
+* Interns: Cloud unit economics project → mapped: job-cof-2021-11
+* FWOS Snowblowers (Denver) → mapped: job-lowes-2019-06
+* Store due-files backlog reduction → mapped: job-lowes-2020-08
+* Automated code testing (exec-ready sizing) → mapped: job-cof-2021-11
+* OPEX Dashboard for Partners → mapped: job-cof-2021-11
+* Milestone Contracts → mapped: job-cof-2021-11
+* Negotiated Vendor Funding - Igloo → mapped: job-acad-2018-07
+* Harmony/MLX chargeback funding shift → mapped: job-cof-2021-11
+* Headcount policy exception for horizontal data team → mapped: job-cof-2021-11
+* Corin strategy tool pilot → mapped: job-cof-2021-11
+* Inventory shrinkage & damages contra revenue → mapped: job-lowes-2020-08
+* Western Region Margin Analysis → mapped: job-lowes-2019-06
+* Cooler Color Allocations → mapped: job-acad-2018-07
+* Cloud unit economics (CFO education) → mapped: job-cof-2021-11
+* Regional Manager Deep Dive (KC/Dallas/Phoenix) → mapped: job-lowes-2019-06
+* T&E dashboard red team review → mapped: job-cof-2021-11
+* Contribution margin labor framework (Invent) → mapped: job-cof-2021-11
+* Cloud Delay → mapped: job-cof-2021-11
+* Cloud Roadmap (25% CAGR, -8% RR) → mapped: job-cof-2021-11
+* Customer simplification initiative (SCPL) → mapped: job-lowes-2020-08
+* Product team self-service reporting enablement → mapped: job-lowes-2020-08
+
+## Canonical JSONL export (v1.3)
+
+```jsonl
+{"type":"profile","id":"profile-colby","name":"Colby Hood","location":"Falls Church, VA, USA","email":"brnthood@gmail.com","urls":["https://www.linkedin.com/in/colby-hood-mba-336156150/","https://bryanthood-wph.github.io/index.html"]}
+{"type":"employer","id":"emp-amzn","name":"Amazon","aliases":["Amazon.com, Inc."],"domain":"amazon.com"}
+{"type":"employer","id":"emp-cof","name":"Capital One Financial Corporation","aliases":["Capital One","COF"],"domain":"capitalone.com"}
+{"type":"employer","id":"emp-lowes","name":"Lowe's Companies, Inc.","aliases":["Lowe's","Lowes"],"domain":"lowes.com"}
+{"type":"employer","id":"emp-acad","name":"Academy Sports + Outdoors","aliases":["Academy"],"domain":"academy.com"}
+{"type":"job","id":"job-amzn-2023-09","employer_id":"emp-amzn","title_std":"Finance Operations Manager","start_date":"2023-09","end_date":"present","location":"Arlington, VA, USA"}
+{"type":"job","id":"job-cof-2021-11","employer_id":"emp-cof","title_std":"Principal Associate: Card Technology Finance","start_date":"2021-11","end_date":"2023-09","location":"McLean, VA, USA"}
+{"type":"job","id":"job-lowes-2020-08","employer_id":"emp-lowes","title_std":"Senior Financial Analyst","start_date":"2020-08","end_date":"2021-11","location":"Charlotte, NC, USA"}
+{"type":"job","id":"job-lowes-2019-06","employer_id":"emp-lowes","title_std":"Financial Analyst","start_date":"2019-06","end_date":"2020-08","location":"Charlotte, NC, USA"}
+{"type":"job","id":"job-acad-2018-07","employer_id":"emp-acad","title_std":"Operations Analyst","start_date":"2018-07","end_date":"2019-06","location":"Katy, TX, USA"}
+{"type":"job","id":"job-acad-2017-01","employer_id":"emp-acad","title_std":"Store Manager","start_date":"2017-01","end_date":"2018-07","location":"Katy, TX, USA"}
+
+{"type":"achievement","id":"achv-amzn-voice2voice","job_id":"job-amzn-2023-09","summary":"Authored cross-functional Voice-to-Voice AI proposal to automate 134K outbound calls; 200+ FTE productivity unlock.","metrics":[{"name":"calls_automated_target","value":134000,"unit":"count"},{"name":"productivity_unlock_fte","value":200,"unit":"fte","qualifier":"plus"}],"source_refs":[{"file":"Resume.pdf","lines":"L55-L63"}],"confidence":"resume_corroborated"}
+{"type":"achievement","id":"achv-amzn-unapplied-cash","job_id":"job-amzn-2023-09","summary":"Reduced weekly unapplied cash from >$10MM to ~$2MM; exposed liquidations growth (Dec-23 $41MM → Dec-24 $157MM).","metrics":[{"name":"unapplied_cash_weekly_usd","before":10000000,"after":2000000,"unit":"usd"},{"name":"liquidations_usd","t0_label":"2023-12","t0":41000000,"t1_label":"2024-12","t1":157000000,"unit":"usd"}],"source_refs":[{"file":"Resume.pdf","lines":"L67-L71"},{"file":"Resume.pdf","lines":"L67-L75"}],"confidence":"resume_corroborated"}
+{"type":"achievement","id":"achv-amzn-310-requests","job_id":"job-amzn-2023-09","summary":"Influenced centralized BI team to launch self-service pilot; removed 310 TTM AR data requests.","metrics":[{"name":"ar_data_requests_removed_ttm","value":310,"unit":"count"}],"source_refs":[{"file":"Resume.pdf","lines":"L73-L75"}],"confidence":"resume_corroborated"}
+
+{"type":"achievement","id":"achv-cof-opex-dashboard","job_id":"job-cof-2021-11","summary":"Partner OPEX/HC self-service dashboard; coached SA; became top-used finance dashboard (~50 views/month).","source_refs":[{"file":"Interview Prep.pdf","lines":"L12-L47"}],"confidence":"interview_prep_corroborated"}
+{"type":"achievement","id":"achv-cof-milestone-contracts","job_id":"job-cof-2021-11","summary":"Shifted milestone accruals to story-point driven completion; reduced swings vs budget to <3%.","metrics":[{"name":"post_variance_vs_budget_pct_max","value":3,"unit":"percent","qualifier":"less_or_equal"}],"source_refs":[{"file":"Interview Prep.pdf","lines":"L13-L31"},{"file":"Interview Prep.pdf","lines":"L61-L80"}],"confidence":"confirmed_user"}
+
+{"type":"achievement","id":"achv-lowes-due-files","job_id":"job-lowes-2020-08","summary":"Exposed instance-level due files; prioritized lists to stores; decreased balance ~65% over 6 months; noted downstream payroll risk.","metrics":[{"name":"due_files_reduction_pct","value":65,"unit":"percent","period":"6mo","qualifier":"approx"}],"source_refs":[{"file":"Interview Prep.pdf","lines":"L13-L33"},{"file":"Interview Prep.pdf","lines":"L53-L74"}],"confidence":"interview_prep_corroborated"}
+{"type":"achievement","id":"achv-lowes-west-margin","job_id":"job-lowes-2019-06","summary":"Added shipping layer to planning for West; corrected margin targets; regions met plan through Q3 2021; 19 exceptions run.","metrics":[{"name":"exceptions_count","value":19,"unit":"count"}],"source_refs":[{"file":"Interview Prep.pdf","lines":"L40-L66"},{"file":"Interview Prep.pdf","lines":"L1-L22"},{"file":"Resume.pdf","lines":"L31-L35"}],"confidence":"interview_prep_corroborated"}
+{"type":"achievement","id":"achv-lowes-voc","job_id":"job-lowes-2019-06","summary":"Holiday hourly sales dashboard with in-stock overlays; 3% budget beat, 8% YoY; earned trust; award received.","metrics":[{"name":"holiday_sales_budget_beat_pct","value":3,"unit":"percent"},{"name":"holiday_sales_yoy_pct","value":8,"unit":"percent"}],"source_refs":[{"file":"Interview Prep.pdf","lines":"L23-L36"},{"file":"Interview Prep.pdf","lines":"L57-L71"}],"confidence":"interview_prep_corroborated"}
+{"type":"achievement","id":"achv-lowes-product-team-reporting","job_id":"job-lowes-2020-08","summary":"Product team reporting enablement — taught them to self-serve.","source_refs":[{"file":"Resume.pdf","lines":"L47-L49"},{"file":"Resume.pdf","lines":"L51-L53"}],"confidence":"confirmed_user"}
+
+{"type":"achievement","id":"achv-acad-igloo-funding","job_id":"job-acad-2018-07","summary":"Negotiated vendor funding to cover margin gap for cooler reset; ~15% funded; reinvested into EDLP coolers.","metrics":[{"name":"vendor_funding_pct","value":15,"unit":"percent","qualifier":"approx"}],"source_refs":[{"file":"Interview Prep.pdf","lines":"L36-L61"}],"confidence":"interview_prep_corroborated"}
+{"type":"achievement","id":"achv-acad-cooler-colors","job_id":"job-acad-2018-07","summary":"One-time collegiate color buy; allocated 80% initially; trapped inventory in some store/color combos; lesson logged.","metrics":[{"name":"initial_allocation_pct","value":80,"unit":"percent"}],"source_refs":[{"file":"Interview Prep.pdf","lines":"L70-L86"}],"confidence":"interview_prep_corroborated"}
+{"type":"achievement","id":"achv-amzn-nps","job_id":"job-amzn-2023-09","summary":"Led HQ2 AI Productivity Lunch & Learn; 94% NPS.","metrics":[{"name":"nps_pct","value":94,"unit":"percent"}],"source_refs":[{"file":"Resume.pdf","lines":"L77-L79"}],"confidence":"resume_corroborated"}
+{"type":"achievement","id":"achv-cof-cloud-roadmap","job_id":"job-cof-2021-11","summary":"Survey-driven cloud optimization roadmap ratified by tech leaders; dropped annualized run-rate by 8% (~$6M) starting 2024-Q1.","metrics":[{"name":"rr_drop_pct","value":8,"unit":"percent","start":"2024-01"},{"name":"rr_drop_usd","value":6000000,"unit":"usd","qualifier":"approx","start":"2024-01"}],"source_refs":[{"file":"Interview Prep.pdf","lines":"L51-L74"}],"confidence":"interview_prep_corroborated"}
+{"type":"achievement","id":"achv-cof-cloud-delay","job_id":"job-cof-2021-11","summary":"Mitigated $1M/month forecast risk from deployment delays; identified $550k replication waste and policy fixes.","metrics":[{"name":"forecast_risk_usd_per_month","value":1000000,"unit":"usd_per_month"},{"name":"replication_waste_usd","value":550000,"unit":"usd"}],"source_refs":[{"file":"Interview Prep.pdf","lines":"L66-L91"}],"confidence":"interview_prep_corroborated"}
+{"type":"achievement","id":"achv-cof-headcount-exception","job_id":"job-cof-2021-11","summary":"Secured headcount policy exception for horizontal data team tied to CEO imperative and $20M+ savings lineage.","source_refs":[{"file":"Interview Prep.pdf","lines":"L56-L77"}],"confidence":"interview_prep_corroborated"}
+{"type":"achievement","id":"achv-cof-harmony-mlx","job_id":"job-cof-2021-11","summary":"Shifted MLX/Harmony chargeback to business-funded model; embedded cloud analytics earlier in the business-case process.","source_refs":[{"file":"Interview Prep.pdf","lines":"L20-L55"}],"confidence":"interview_prep_corroborated"}
+{"type":"achievement","id":"achv-cof-contr-margin-framework","job_id":"job-cof-2021-11","summary":"Contribution margin labor framework (volume, rate, mix) adopted for target setting and dashboarding.","source_refs":[{"file":"Interview Prep.pdf","lines":"L38-L66"}],"confidence":"interview_prep_corroborated"}
+{"type":"achievement","id":"achv-cof-automated-testing","job_id":"job-cof-2021-11","summary":"Synthesized automated testing business case in hours for exec readout; influenced decision to begin development in Q4.","source_refs":[{"file":"Interview Prep.pdf","lines":"L38-L55"}],"confidence":"interview_prep_corroborated"}
+{"type":"achievement","id":"achv-cof-red-team-te","job_id":"job-cof-2021-11","summary":"Instituted red-team review for T&E dashboard; improved clarity and accuracy and added red-teaming as a scaled checkpoint.","source_refs":[{"file":"Interview Prep.pdf","lines":"L9-L35"}],"confidence":"interview_prep_corroborated"}
+{"type":"achievement","id":"achv-cof-corin-tool","job_id":"job-cof-2021-11","summary":"Piloted 'Corin' scenario analysis tool; failed to gain adoption due to insufficient early customer buy-in (lesson logged).","source_refs":[{"file":"Interview Prep.pdf","lines":"L30-L39"}],"confidence":"interview_prep_corroborated"}
+{"type":"achievement","id":"achv-cof-interns-cloud-unit-econ","job_id":"job-cof-2021-11","summary":"Led intern team on cloud unit economics; 65% of apps showed accelerating ROI; 8% early lifecycle; 27% rightsizing candidates; forecast accuracy improved from 5% to 2%.","metrics":[{"name":"apps_accelerating_roi_pct","value":65,"unit":"percent"},{"name":"apps_early_invest_pct","value":8,"unit":"percent"},{"name":"apps_rightsizing_candidates_pct","value":27,"unit":"percent"},{"name":"forecast_accuracy_pct","before":5,"after":2,"unit":"percent"}],"source_refs":[{"file":"Interview Prep.pdf","lines":"L61-L71"}],"confidence":"interview_prep_corroborated"}
+{"type":"achievement","id":"achv-lowes-damages-metric","job_id":"job-lowes-2020-08","summary":"Created damage-to-sales efficiency metric; reforecast using merchant plans; reduced outliers vs prior year by 25%.","metrics":[{"name":"outliers_reduction_vs_prior_year_pct","value":25,"unit":"percent"}],"source_refs":[{"file":"Interview Prep.pdf","lines":"L45-L58"}],"confidence":"interview_prep_corroborated"}
+{"type":"achievement","id":"achv-lowes-watering-mats","job_id":"job-lowes-2020-08","summary":"Business case for plant-watering technology; secured $1.3M seed funding to reduce water consumption.","metrics":[{"name":"seed_funding_usd","value":1300000,"unit":"usd"}],"source_refs":[{"file":"Resume.pdf","lines":"L59-L61"}],"confidence":"resume_corroborated"}
+{"type":"achievement","id":"achv-lowes-fwos-snowblowers","job_id":"job-lowes-2019-06","summary":"Restored snowblower inventory ahead of storm; avoided ~$80,000 at-risk sales loss in Denver market.","metrics":[{"name":"at_risk_sales_avoided_usd","value":80000,"unit":"usd","qualifier":"approx"}],"source_refs":[{"file":"Interview Prep.pdf","lines":"L41-L47"}],"confidence":"interview_prep_corroborated"}
+```
+
+## Ambiguity Queue
+
+* None.
+
+## Changelog
+
+* v1.5 (2025-10-16): Removed automated contract renewals ($2M) item per user; cleared Ambiguity Queue.
+* v1.2 (2025-10-16): Resolved Lowe’s SA ownership for product team reporting; upgraded to confirmed_user; removed Ambiguity Queue. Parser remains in strict_mode.
+* v1.1 (2025-10-16): Added Parser Contract, Provenance Map with line ranges, canonical JSONL export, and Ambiguity Queue; tightened no-guessing rules.
+* v1.0 (2025-10-16): Initial merge of resume + interview-prep into canonical structured format; mapped examples and flagged clarifications.
