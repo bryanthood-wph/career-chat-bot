@@ -289,10 +289,11 @@ def chat(message, history):
             done = True
     return response.choices[0].message.content
 
-# NOTE: This cell launches the Gradio chat interface with tool calling:
+# NOTE: This cell creates the Gradio chat interface with tool calling:
 # - Creates a web-based chat interface using the enhanced chat function
 # - The interface now includes tool calling capabilities for push notifications
 # - Users can interact with the AI assistant while it records interactions
 # - The AI can send push notifications to your phone when users engage
+# - For Hugging Face Spaces: assign to variable, don't call .launch()
 
-gr.ChatInterface(chat, type="messages").launch()
+demo = gr.ChatInterface(chat, type="messages")

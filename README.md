@@ -2,7 +2,7 @@
 title: career-chat-bot
 app_file: app.py
 sdk: gradio
-sdk_version: 4.44.0
+sdk_version: 5.49.1
 ---
 # Career Chat Bot
 
@@ -16,8 +16,17 @@ pip install -r requirements.txt
 ```
 
 ### 2. Environment Configuration
+
+**For Local Development:**
 1. Copy `env_template.txt` to `.env`
 2. Fill in your actual API keys:
+   - `OPENAI_API_KEY`: Your OpenAI API key
+   - `PUSHOVER_USER`: Your Pushover user ID (for notifications)
+   - `PUSHOVER_TOKEN`: Your Pushover app token
+
+**For Hugging Face Spaces Deployment:**
+1. Go to your Space settings → Secrets and variables → Secrets
+2. Add the following secrets:
    - `OPENAI_API_KEY`: Your OpenAI API key
    - `PUSHOVER_USER`: Your Pushover user ID (for notifications)
    - `PUSHOVER_TOKEN`: Your Pushover app token
